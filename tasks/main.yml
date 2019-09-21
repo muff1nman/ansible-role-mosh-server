@@ -1,0 +1,11 @@
+---
+- name: Install mosh
+  package:
+    name: mosh
+- name: Turn on mosh firewalld
+  firewalld:
+     service: mosh
+     permanent: true
+     state: enabled
+     zone: public
+  notify: [ "firewalld" ]
